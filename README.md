@@ -55,7 +55,7 @@ kotlin {
         commonMain { //   <---  name may vary on your project
             dependencies {
                 // implementation "org.reduxkotlin:redux-kotlin-threadsafe:0.5.5"
-                implementation "com.1gravity.redux:redux-kotlin-threadsafe:0.5.8-SNAPSHOT"
+                implementation "com.1gravity.redux:redux-kotlin-threadsafe:0.5.9-SNAPSHOT"
             }
         }
  }
@@ -63,7 +63,7 @@ kotlin {
 
 For JVM only:
 ```
-  implementation "com.1gravity.redux:redux-kotlin-threadsafe-JVM:0.5.8-SNAPSHOT"
+  implementation "com.1gravity.redux:redux-kotlin-threadsafe-JVM:0.5.9-SNAPSHOT"
 ```
 
 *Non threadsafe store is available.  Typical usage will be with the threadsafe store. [More info read here](https://www.reduxkotlin.org/introduction/getting-started)

@@ -40,6 +40,7 @@ publishing {
     publications.withType<MavenPublication> {
         pom {
             groupId = project.get("GROUP")
+            // the artifactId defaults to the project's/module's name
             version = project.get("VERSION_NAME")
 
             name.set(project.name)

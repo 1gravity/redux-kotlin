@@ -22,6 +22,19 @@ allprojects {
         google()
     }
 
+    afterEvaluate {
+        // eliminate log pollution until Android support for KMM improves
+        val sets2BeRemoved = setOf(
+            "androidAndroidTestRelease",
+            "androidTestFixtures",
+            "androidTestFixturesDebug",
+            "androidTestFixturesRelease"
+        )
+        project.extensions.findByType<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension>()?.let { kmpExt ->
+            kmpExt.sourceSets.removeAll { sets2BeRemoved.contains(it.name) }
+        }
+    }
+
     group = project.properties["GROUP"]!!
     version = project.properties["VERSION_NAME"]!!
     if (hasProperty("SNAPSHOT") || System.getenv("SNAPSHOT") != null) {

@@ -35,8 +35,8 @@ allprojects {
         }
     }
 
-    group = project.properties["GROUP"]!!
-    version = project.properties["VERSION_NAME"]!!
+    group = project.properties["POM_GROUP"]!!
+    version = project.properties["POM_VERSION_NAME"]!!
     if (hasProperty("SNAPSHOT") || System.getenv("SNAPSHOT") != null) {
         version = "$version-SNAPSHOT"
     }

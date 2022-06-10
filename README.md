@@ -44,7 +44,8 @@ Artifacts are hosted on maven central.  They are published with gradle metadata,
 ```
 allprojects {
     repositories {
-        // other repos
+        mavenCentral()
+        // for snapshot version
         maven("https://oss.sonatype.org/content/repositories/snapshots")
     }
 }
@@ -55,7 +56,7 @@ kotlin {
         commonMain { //   <---  name may vary on your project
             dependencies {
                 // implementation "org.reduxkotlin:redux-kotlin-threadsafe:0.5.5"
-                implementation "com.1gravity:redux-kotlin-threadsafe:0.5.9-SNAPSHOT"
+                implementation "com.1gravity:redux-kotlin-threadsafe:0.5.10"
             }
         }
  }
@@ -63,7 +64,7 @@ kotlin {
 
 For JVM only:
 ```
-  implementation "com.1gravity:redux-kotlin-threadsafe-JVM:0.5.9-SNAPSHOT"
+  implementation "com.1gravity:redux-kotlin-threadsafe-JVM:0.5.10"
 ```
 
 *Non threadsafe store is available.  Typical usage will be with the threadsafe store. [More info read here](https://www.reduxkotlin.org/introduction/getting-started)

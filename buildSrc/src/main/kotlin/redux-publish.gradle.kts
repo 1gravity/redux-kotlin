@@ -38,7 +38,11 @@ publishing {
     }
 
     publications.withType<MavenPublication> {
+        artifact(javadocJar.get())
+
         pom {
+            name.set(project.name)
+
             groupId = project.get("POM_GROUP")
             // the artifactId defaults to the project's/module's name
             version = project.get("POM_VERSION_NAME")
@@ -75,8 +79,8 @@ publishing {
 
 // 3. sign the artifacts
 signing {
-    val signingKeyPassword = project.get("GPG_SIGNING_PASSWORD")
-    val signingKey = project.get("GPG_SECRET")
-    useInMemoryPgpKeys(signingKey, signingKeyPassword)
+    val signingKey = project.get("GPG_SIGNING_KEY")
+    val signingPassword = project.get("GPG_SIGNING_PASSWORD")
+    useInMemoryPgpKeys(signingKey, signingPassword)
     sign(publishing.publications)
 }

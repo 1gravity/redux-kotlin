@@ -30,19 +30,11 @@ publishing {
         }
     }
 
-    // 2.
-    publications {
-        create("mavenKotlin", MavenPublication::class.java) {
-            from(components.getByName("kotlin"))
-        }
-    }
-
+    // 2. Configure publications
     publications.withType<MavenPublication> {
         artifact(javadocJar.get())
 
         pom {
-            name.set(project.name)
-
             groupId = project.get("POM_GROUP")
             // the artifactId defaults to the project's/module's name
             version = project.get("POM_VERSION_NAME")
